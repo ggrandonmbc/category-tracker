@@ -4,6 +4,7 @@ import { getCurrentUserRole } from "@/lib/auth/role";
 import { NavSidebar } from "@/components/layout/NavSidebar";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { Brand } from "@/components/layout/Brand";
+import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 
 export default async function AdminLayout({
   children,
@@ -45,6 +46,7 @@ export default async function AdminLayout({
 
         <main className="flex-1 overflow-x-hidden bg-muted/20">{children}</main>
       </div>
+      <FeedbackWidget />
     </div>
   );
 }

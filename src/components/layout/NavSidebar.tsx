@@ -71,7 +71,10 @@ export function NavSidebar({
 
       <nav className="flex-1 overflow-y-auto py-3">
         {NAV_GROUPS.map((group, gi) => {
-          const items = group.items.filter(item => (item.modos ?? ["compras", "category"]).includes(modo));
+          const items = group.items.filter(item =>
+            (item.modos ?? ["compras", "category"]).includes(modo) &&
+            (!item.roles || item.roles.includes(user.rol ?? "analyst"))
+          );
           if (items.length === 0) return null;
           return (
             <div key={gi} className="mb-2">

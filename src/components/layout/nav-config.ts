@@ -9,6 +9,7 @@ import {
   Sparkles,
   Bell,
   BookOpen,
+  MessageSquare,
 } from "lucide-react";
 
 export type Modo = "compras" | "category";
@@ -22,6 +23,8 @@ export type NavItem = {
   modos?: Modo[];
   /** Href alternativo cuando el modo activo es "compras" (ej. deep-link a otra pestaña). */
   hrefCompras?: string;
+  /** Si se define, solo se muestra a usuarios con ese rol. */
+  roles?: Array<"admin" | "analyst">;
 };
 
 export type NavGroup = {
@@ -61,6 +64,7 @@ export const NAV_GROUPS: NavGroup[] = [
     label: "Ayuda",
     items: [
       { label: "Manual & Indicadores", href: "/manual", icon: BookOpen, modos: AMBOS },
+      { label: "Feedback", href: "/feedback", icon: MessageSquare, modos: AMBOS, roles: ["admin"] },
     ],
   },
 ];
